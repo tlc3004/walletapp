@@ -5,10 +5,10 @@
 }
 
 body{
-    background-image: url(/imagenes/super.png);
+    background-image: url(/imagenes/simpsoms.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: initial;
 }
 
 .product{
