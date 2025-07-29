@@ -1,35 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ModalBottomLeft from './components/ModalbottomLeft'
+import ModalBottomRight from './components/ModalBottomRight'
+import ModalTopLeft from './components/ModalTopLeft'
+import ModalTopRight from './components/ModalTopRight'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [open, setOpen] = useState(null)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="h-screen bg-gray-900 text-white flex flex-col gap-4 items-center justify-center">
+      <h1 className="text-3xl font-bold mb-4">Modales Circulares 🚀</h1>
+      <div className="flex flex-wrap gap-4">
+        <button onClick={() => setOpen('bl')} className="btn">⬅️ Abajo Izq</button>
+        <button onClick={() => setOpen('br')} className="btn">Abajo Der ➡️</button>
+        <button onClick={() => setOpen('tl')} className="btn">⬅️ Arriba Izq</button>
+        <button onClick={() => setOpen('tr')} className="btn">Arriba Der ➡️</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <ModalBottomLeft visible={open === 'bl'} onClose={() => setOpen(null)} />
+      <ModalBottomRight visible={open === 'br'} onClose={() => setOpen(null)} />
+      <ModalTopLeft visible={open === 'tl'} onClose={() => setOpen(null)} />
+      <ModalTopRight visible={open === 'tr'} onClose={() => setOpen(null)} />
+    </div>
   )
 }
-
-export default App
