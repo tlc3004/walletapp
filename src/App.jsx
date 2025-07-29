@@ -8,8 +8,8 @@ import './App.css'
 export default function App({onClose}) {
   const [showBL, setShowBL] = useState(false)
   const [showBR, setShowBR] = useState(false)
-  const [showTL, setShowTL] = useState(false)
-  const [showTR, setShowTR] = useState(false)
+  // const [showTL, setShowTL] = useState(false)
+  // const [showTR, setShowTR] = useState(false)
 
   return (
     <div className="app">
