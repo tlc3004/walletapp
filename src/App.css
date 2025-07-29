@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  z-index: 999;
+  padding: 0;
+  pointer-events: none;
+}
+
+.botonera {
+  display: flex;
+  width: 20%;
+  gap: 60px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  display: flex;
+  margin-left: 40%;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+
+.circle-content {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+  transition: transform 0.7s ease, opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Activo */
+.modal.show .circle-content {
+  transform: rotate(0deg);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Posiciones y estilos específicos */
+
+.modal.top-right {
+  top: 0;
+  left:  70%;
+}
+.modal.top-right .circle-content {
+  background: radial-gradient(circle at 100% 0%, #f43f5e, #991b1b);
+  border-radius: 0 0 0 100%;
+  transform-origin: top right;
+}
+
+.modal.top-left {
+  top: -10%;
+  right: 70%;
+}
+.modal.top-left .circle-content {
+  background: radial-gradient(circle at 0% 0%, #10b981, #064e3b);
+  border-radius: 0 0 100% 0 ;
+  transform-origin: top left;
+}
+
+.modal.bottom-right {
+  bottom: 0;
+  right: 70%;
+}
+.modal.bottom-right .circle-content {
+  background: radial-gradient(circle at 100% 100%, #d946ef, #86198f);
+  border-radius: 0 100% 0 0;
+  transform-origin: bottom left;
+}
+
+.modal.bottom-left {
+  bottom: 0;
+  left: 70%;
+}
+.modal.bottom-left .circle-content {
+  background: radial-gradient(circle at 0% 100%, #3b82f6, #1e3a8a);
+  border-radius: 100% 0 0 0;
+  transform-origin: bottom right;
+}
