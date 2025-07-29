@@ -5,12 +5,19 @@
 }
 
 body{
-    background-image: url(/imagenes/fiesta.png);
+    background-image: url(/imagenes/super.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+img{
+    margin-top: 10px;
+}
+
+button{
+    background: #000;
+}
 .modal {
   position: fixed;
   width: 600px;
