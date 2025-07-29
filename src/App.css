@@ -11,12 +11,12 @@ body{
     background-position: center;
 }
 
-img{
-    margin-top: 10px;
+.product{
+    width: 20%;
 }
 
 button{
-    background: #000;
+    background: #f00;
 }
 .modal {
   position: fixed;

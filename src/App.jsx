@@ -1,31 +1,36 @@
 import { useState } from 'react'
 import ModalBottomLeft from './components/ModalbottomLeft'
 import ModalBottomRight from './components/ModalBottomRight'
-// import ModalTopLeft from './components/ModalTopLeft'
-// import ModalTopRight from './components/ModalTopRight'
+import Productos from './pages/Productos'
 import './App.css'
 
-export default function App({onClose}) {
+export default function App() {
   const [showBL, setShowBL] = useState(false)
   const [showBR, setShowBR] = useState(false)
-  // const [showTL, setShowTL] = useState(false)
-  // const [showTR, setShowTR] = useState(false)
+  const [showProductos, setShowProductos] = useState(false)
+
+  const handleOpenProducto = () => {
+    setShowBR(true)
+    setShowProductos(true)
+  }
+
+  const handleCloseBR = () => {
+    setShowBR(false)
+    setShowProductos(false)
+  }
 
   return (
     <div className="app">
-      
-
       <div className="botonera">
-        <button onClick={() => setShowBL(true)}> Azul➡️</button>
-        <button onClick={() => setShowBR(true)}>⬅️Lila </button>
-        {/* <button onClick={() => setShowTR(true)}>Rojo ➡️</button>
-        <button onClick={() => setShowTL(true)}>⬅️ Verde</button> */}
+        <button onClick={() => setShowBL(true)}>Azul ➡️</button>
+        <button onClick={handleOpenProducto}>⬅️ Lila + Producto</button>
       </div>
 
-      <ModalBottomLeft visible={showBL} onClose={() => setShowBL(onClose)} />
-      <ModalBottomRight visible={showBR} onClose={() => setShowBR(onClose)} />
-      {/* <ModalTopLeft visible={showTL} onClose={() => setShowTL(onClose)} />
-      <ModalTopRight visible={showTR} onClose={() => setShowTR(onClose)} /> */}
+      <ModalBottomLeft visible={showBL} onClose={() => setShowBL(false)} />
+
+      <ModalBottomRight visible={showBR} onClose={handleCloseBR}>
+        {showProductos && <Productos onClose={handleCloseBR} />}
+      </ModalBottomRight>
     </div>
   )
 }
